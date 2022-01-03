@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JumanCO</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['line']});
+        google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Day');
+        data.addColumn('number', 'Great British Pound');
+        data.addColumn('number', 'JumanCO');
+        data.addColumn('number', 'Egyptian Pound');
+
+        data.addRows([
+          [1,  37.8, 80.8, 41.8],
+          [2,  30.9, 69.5, 32.4],
+          [3,  25.4,   57, 25.7],
+          [4,  11.7, 18.8, 10.5],
+          [5,  11.9, 17.6, 10.4],
+          [6,   8.8, 13.6,  7.7],
+          [7,   7.6, 12.3,  9.6],
+          [8,  12.3, 29.2, 10.6],
+          [9,  16.9, 42.9, 14.8],
+          [10, 12.8, 30.9, 11.6],
+          [11,  5.3,  7.9,  4.7],
+          [12,  6.6,  8.4,  5.2],
+          [13,  4.8,  6.3,  3.6],
+          [14,  4.2,  6.2,  3.4]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'JumanCO in the past 2 weeks compared to great british pound and egyptian pound'
+          },
+          width: 900,
+          height: 500,
+          axes: {
+            x: {
+              0: {side: 'top'}
+            }
+          }
+        };
+
+        var chart = new google.charts.Line(document.getElementById('lineChart'));
+
+        chart.draw(data, google.charts.Line.convertOptions(options));
+      }
+    </script>
+  </script>
+  <style media="screen">
+    body{
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-image: url('https://uploads.toptal.io/blog/image/125343/toptal-blog-image-1517911180131-588ef8c3e7cd0fea221ae3167d7a7595.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      text-align: center;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+      width: 100%;
+      text-transform: uppercase;
+      padding-top: 40px;
+      padding-bottom: 45px;
+      background-color: orange;
+    }
+
+    li{
+      list-style: none;
+      color: white;
+      width: 17%;
+      padding: 0px calc(17%/10)
+    }
+    ul{
+      background-color: orange;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    div{
+      margin-bottom: 50px;
+      width: 1000px;
+      height: 600px;
+      background-color: white;
+      border-radius: 10px;
+    }
+    a:hover{
+      background-color: #1C6DD0;
+      transition: ease-in-out 200ms
+    }
+  </style>
+
+</head>
+<body>
+  <nav>
+    <ul>
+        <li><a href="#">JumanCO</a></li>
+        <li><a href="/Dashboard">Dahsboard</a></li>
+        <li><a href="/buy">Buy JumanCO</a></li>
+        <li> <a href="/transaction">Transfer</a> </li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+  </nav>
+  <h2 style="color: orange">JumanCO (JMC) is an innovative payment network made to make your life easier</h2>
+  <center>
+    <div id="lineChart"></div>
+  </center>
+  <p><a href="/registration" style="width: 20%; height: 20px; border-radius: 10px;">Get started now</a></p>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tranaction</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <style media="screen">
+      body{
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-image: url('https://uploads.toptal.io/blog/image/125343/toptal-blog-image-1517911180131-588ef8c3e7cd0fea221ae3167d7a7595.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        text-align: center;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        width: 100%;
+        text-transform: uppercase;
+        padding-top: 40px;
+        padding-bottom: 45px;
+        background-color: orange;
+      }
+
+      li{
+        list-style: none;
+        color: white;
+        width: 17%;
+        padding: 0px calc(17%/10)
+      }
+      ul{
+        background-color: orange;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      div{
+        margin: auto;
+        margin-top: 70px;
+        width: 40%;
+        background-color: white;
+        border-radius: 10px;
+        height: 370px;
+      }
+      a:hover{
+        background-color: #1C6DD0;
+        transition: ease-in-out 200ms
+      }
+      p{
+        padding: 60px;
+        margin: 0;
+        color: orange;
+        font-weight: bold;
+      }
+      input{
+        width: 30%;
+        padding: 12px 20px;
+        margin: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: 0.5s;
+        outline: none;
+      }
+      input:focus{
+        border: 1px solid #1C6DD0;
+      }
+      button {
+        background-color: white;
+        border: none;
+        color: orange;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 6px;
+        border: 1px solid orange;
+        margin-bottom: 20px;
+      }
+      button:hover{
+        background-color: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+          <li><a href="/index">JumanCO</a></li>
+          <li><a href="/Dashboard">Dahsboard</a></li>
+          <li><a href="/buy">Buy JumanCO</a></li>
+          <li> <a href="/transaction">Transfer</a> </li>
+          <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <div class="">
+      {% block body %}
+      {% include 'includes/_messages.html' %}
+      <p>Your current balance is {{ balance }} JMC</p>
+      {% from "includes/_formhelpers.html" import render_field %}
+      <form method="POST" action="">
+        {{render_field(form.username)}}<br>
+        {{render_field(form.amount)}}
+        <input type="submit" value="Send" style="background-color: white; color:#1C6DD0; border: 1px solid #1C6DD0;">
+      </form>
+      <button onclick="window.location..href'dashboard'">Dahsboard</button>
+      {% endblock %}
+    </div>
+  </body>
+</html>

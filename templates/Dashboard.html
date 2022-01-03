@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <style media="screen">
+      body{
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-image: url('https://uploads.toptal.io/blog/image/125343/toptal-blog-image-1517911180131-588ef8c3e7cd0fea221ae3167d7a7595.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        width: 100%;
+        text-transform: uppercase;
+        padding-top: 40px;
+        padding-bottom: 45px;
+        background-color: orange;
+      }
+
+      li{
+        list-style: none;
+        color: white;
+        width: 17%;
+        padding: 0px calc(17%/10)
+      }
+      ul{
+        background-color: orange;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      a:hover{
+        background-color: #1C6DD0;
+        transition: ease-in-out 200ms
+      }
+      div{
+        background-color: white;
+        border-radius: 10px;
+        width: 80%;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <nav style="text-align:center">
+      <ul>
+          <li><a href="/index">JumanCO</a></li>
+          <li><a href="/Dashboard">Dahsboard</a></li>
+          <li><a href="/buy">Buy JumanCO</a></li>
+          <li> <a href="/transaction">Transfer</a> </li>
+          <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <div style="padding:50px; margin: 20px auto;">
+      {% block body %}
+      <h1>Welcome back, {{session.get('name')}}</h1>
+      {% include 'includes/_messages.html' %}
+      <p> Your current balance is {{ balance }} JMC</p>
+    </div>
+    <div style="padding:10px">
+          <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Transaction</th>
+                <th>Hash</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for block in blockchain %}
+              <tr>
+                <td>{{block.number}}</td>
+                <td>{{block.data}}</td>
+                <td>{{block.hash()}}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        <p>Updated today at {{current_time}}</p>
+      {% endblock %}
+    </div>
+  </body>
+</html>
