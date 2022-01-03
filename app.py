@@ -137,7 +137,7 @@ def logout():
 @app.route("/Dashboard")
 @is_logged_in
 def dashboard():
-    balance = 150#get_balance(session.get('username'))
+    balance = get_balance(session.get('username'))
     blockchain = get_blockchain().chain
     current_time = time.strftime("%I:%M %p")
     return render_template('Dashboard.html',balance=balance, session=session, current_time=current_time, blockchain=blockchain, page='Dahsboard')
